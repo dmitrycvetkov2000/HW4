@@ -1,0 +1,23 @@
+/* Сгенерировать массив случайных чисел (например 200 чисел). Найти индекс первого повторяющегося числа в массиве. Если все числа разные - то -1.
+Пример : [3, 4, 5, 6, 8, 78, 67, 4, 88] - 4, индекс 1 */
+
+var mas: [Int] = []
+for _ in 0..<200{
+    let randomNum = Int.random(in: 0...9)
+    mas.append(randomNum)
+}
+print(mas)
+
+func findRepeatingNumber(mas: [Int]) -> Int{
+    for i in 0..<mas.count {
+        for j in i+1..<mas.count{
+            if mas[i] == mas[j]{
+                print("Индекс первого повторяющегося элемента: \(i)")
+                return i
+            }
+        }
+    }
+    print("Нет повторяющихся элементов")
+    return -1
+}
+findRepeatingNumber(mas: mas)
